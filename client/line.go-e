@@ -39,7 +39,7 @@ func (line *Line) Text() string {
 // Return the target of the line, usually the first Arg for the IRC verb.
 // If the line was broadcast from a channel, the target will be that channel.
 // If the line was broadcast by a user, the target will be that user.
-// TODO(rmorriso): Add 005 CHANTYPES parsing for this?
+// TODO(fluffle): Add 005 CHANTYPES parsing for this?
 func (line *Line) Target() string {
 	switch line.Cmd {
 	case PRIVMSG, NOTICE, ACTION:
@@ -69,7 +69,7 @@ func (line *Line) Public() bool {
 		// CTCP prepends the CTCP verb to line.Args, thus for the message
 		//   :nick!user@host PRIVMSG #foo :\001BAR baz\001
 		// line.Args contains: []string{"BAR", "#foo", "baz"}
-		// TODO(rmorriso): Arguably this is broken, and we should have
+		// TODO(fluffle): Arguably this is broken, and we should have
 		// line.Args containing: []string{"#foo", "BAR", "baz"}
 		// ... OR change conn.Ctcp()'s argument order to be consistent.
 		if strings.HasPrefix(line.Args[1], "#") {

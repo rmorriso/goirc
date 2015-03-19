@@ -4,8 +4,8 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
-	irc "github.com/rmorriso/goirc/client"
-	"github.com/rmorriso/goirc/logging/glog"
+	irc "github.com/fluffle/goirc/client"
+	"github.com/fluffle/goirc/logging/glog"
 	"os"
 	"strings"
 )
