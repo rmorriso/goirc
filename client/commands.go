@@ -72,7 +72,7 @@ func splitMessage(msg string, splitLen int) (msgs []string) {
 		if idx < 0 {
 			idx = splitLen
 		}
-		msgs = append(msgs, msg[:idx] + "...")
+		msgs = append(msgs, msg[:idx]+"...")
 		msg = msg[idx:]
 	}
 	return append(msgs, msg)

@@ -3,6 +3,8 @@ package client
 import (
 	"strings"
 	"time"
+
+	"github.com/golang/glog"
 )
 
 // We parse an incoming line into this struct. Line.Cmd is used as the trigger
@@ -80,6 +82,9 @@ func (line *Line) Public() bool {
 
 // ParseLine() creates a Line from an incoming message from the IRC server.
 func ParseLine(s string) *Line {
+	glog.Infof("Message: %s\n", s)
+	glog.Flush()
+
 	line := &Line{Raw: s}
 	if s[0] == ':' {
 		// remove a source and parse it
